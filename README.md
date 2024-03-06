@@ -3,8 +3,8 @@
   <img alt="@waduh" style="width: 150px;" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExeDNldzg2ZzcyOXc2eHh1MmM3NGp0NWJtb3FtYW1kamZtMXAxdmV5MiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xXfMk6WcvaCaZdrzI3/giphy.gif">
 </p>
 <div align="center">
-  <h3>StickerWhatsAppBOT</h3>
-  <p>Sticker WhatsAppBOT with <a href="https://github.com/pedroslopez/whatsapp-web.js/">whatsapp-web.js</a> and <a href="https://nodejs.org/en/">nodejs</a></p>
+  <h3>SesatBot</h3>
+  <p>SesatBot with <a href="https://github.com/pedroslopez/whatsapp-web.js/">whatsapp-web.js</a> and <a href="https://nodejs.org/en/">nodejs</a></p>
 </div>
 
 ## Installation 📑
