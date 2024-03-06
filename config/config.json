@@ -1,0 +1,7 @@
+{
+    "name": "SesatBot",
+    "author": "SesatBot",
+    "prefix": "!",
+    "timezone": "Asia/Jakarta",
+    "groups": true
+}
