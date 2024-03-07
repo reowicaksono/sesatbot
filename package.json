@@ -4,7 +4,8 @@
   "description": "sesatbot by SesatMedioker",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "nodejs",
@@ -15,6 +16,7 @@
   "author": "SesatMedioker",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.6.7",
     "colors": "^1.4.0",
     "dotenv": "^16.4.5",
     "ffmpeg": "^0.0.4",
@@ -22,5 +24,8 @@
     "moment-timezone": "^0.5.37",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
