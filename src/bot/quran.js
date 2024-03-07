@@ -19,7 +19,7 @@ const quranHandler = async () => {
 
           const media = await MessageMedia.fromUrl(response.data.image.primary);
 
-          const replyMessage = `*Ayat Quran:*\n${arab}\n\n*_Translation:_*\n\n${translation}\n\n*_Tafsir Kemenag:_*\n\n${kemenagTafsirShort}`;
+          const replyMessage = `*Ayat Quran:*\n\n${arab}\n\n*_Translation:_*\n\n${translation}\n\n*_Tafsir Kemenag:_*\n\n${kemenagTafsirShort}`;
 
           await client.sendMessage(message.from, media, {
             caption: replyMessage,
