@@ -10,7 +10,7 @@ const MaretHandler = () => {
       if (message.body.toLowerCase() === `${config.prefix}18maret`) {
         const countdownDetails = calculateRemainingTime();
         const media = await MessageMedia.fromUrl(
-          "https://ik.imagekit.io/abazure/mega.png?updatedAt=1709813294219"
+          "https://ik.imagekit.io/abazure/mega.png?updatedAt=1709815505100"
         );
         const captionText = `Hitung mundur untuk insiden *18 Maret 2024*\n\n${countdownDetails}`;
 
@@ -33,7 +33,7 @@ const calculateRemainingTime = () => {
   const hours = duration.hours();
   const minutes = duration.minutes();
 
-  return `Sisa Waktu: ${days} hari, ${hours} jam, ${minutes} menit`;
+  return `_Sisa Waktu: ${days} hari, ${hours} jam, ${minutes} menit_`;
 };
 
 module.exports = { MaretHandler };
