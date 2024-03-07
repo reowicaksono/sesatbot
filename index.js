@@ -5,10 +5,26 @@ const colors = require('colors');
 const fs = require('fs');
 const axios = require('axios');
 const randomTexts = require('./config/hina-adzim.json');
-import dotenv from "dotenv";
+var cron = require('node-cron');
 
-dotenv.config();
-const KEYCGPT = process.env.KEYCGPT;
+
+
+const sahurReminder = cron.schedule('0 30 14 * *', async () => { 
+    const chat = await message.getChat();
+    let text = '';
+    let mentions = [];
+  
+    for (let participant of chat.participants) {
+        const contact = await client.getContactById(participant.id._serialized);
+        mentions.push(contact);
+        text += `@${participant.id.user} `;
+    }
+  
+    await chat.sendMessage(`Waktunya sahur! Selamat menjalankan ibadah puasa. `, { mentions });
+}, {
+    scheduled: false 
+})
+
 
 const client = new Client({
     restartOnAuthFail: true,
@@ -57,12 +73,23 @@ client.on('message', async (message) => {
 
             client.sendMessage(message.from, menuText);
             return;
-        }else if (message.body.startsWith(`${config.prefix}hina-adzim`)){
+        }else if (message.body.startsWith(`${config.prefix}hina-adzim`)) {
             const randomIndex = Math.floor(Math.random() * randomTexts.length);
-            const randomText = randomTexts[randomIndex];
-      
-            client.sendMessage(message.from, randomText);
-        } 
+            const chat = await message.getChat();
+            let adzimPhone = "6289643614465@c.us";
+            await chat.sendMessage(`${randomTexts[randomIndex]} @6289643614465`, {
+              mentions: [adzimPhone],
+            });
+        }else if (message.body.startsWith(`${config.prefix}sahur`)) {
+            if (message.body === `${config.prefix}sahur on`) {
+                sahurReminder.start();
+                await message.reply(`Sahur reminder has been turned on!`);
+            } else if (message.body === `${config.prefix}sahur off`) {
+                sahurReminder.stop();
+                await message.reply(`Sahur reminder has been turned off!`);
+            }
+        }
+        
         
         else if (message.body.startsWith(`${config.prefix}anime`)) {
        
@@ -98,7 +125,7 @@ client.on('message', async (message) => {
 					headers: {
 						'Accept': 'application/json',
 						'Content-Type': 'application/json',
-						'Authorization': `Bearer ${KEYCGPT}`
+						'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNmU4OTc5ZTAtZGY2MC00MjUyLWEyNWItY2M3Zjg4MGQxM2JjIiwidHlwZSI6ImFwaV90b2tlbiJ9.MXlkW0-FWqUeRg0KJL1Q88K5jtc6CECsIcHcM0szNsA`
 					},
 					data: JSON.stringify({
 						providers: "openai",
@@ -116,7 +143,19 @@ client.on('message', async (message) => {
              } catch (error) {
                 console.log(error);
 				await message.reply('Gagal mengirim ChatGPT.');
-		}}
+		}}else if (message.body === "!hola") {
+            const chat = await message.getChat();
+            let text = "";
+            let mentions = [];
+
+            for (let participant of chat.participants) {
+                const contact = await client.getContactById(participant.id._serialized);
+                mentions.push(contact);
+                text += `@${participant.id.user} `;
+            }
+
+            await chat.sendMessage(text, { mentions });
+        }
         
         else if (message.body.startsWith(`${config.prefix}checkpwned`)) {
             try {
