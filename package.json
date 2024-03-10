@@ -4,7 +4,8 @@
   "description": "sesatbot by SesatMedioker",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "nodejs",
@@ -24,5 +25,8 @@
     "node-cron": "^3.0.3",
     "qrcode-terminal": "^0.12.0",
     "whatsapp-web.js": "^1.23.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }

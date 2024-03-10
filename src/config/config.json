@@ -3,6 +3,5 @@
     "author": "SesatBot",
     "prefix": "!",
     "timezone": "Asia/Jakarta",
-    "groups": true,
-    "sahurTime": "14:15:00"
+    "groups": true
 }
