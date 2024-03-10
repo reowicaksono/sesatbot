@@ -1,4 +1,5 @@
 const { client } = require("./src/application/app");
+const { MaretHandler } = require("./src/bot/maret");
 const { animeHandler } = require("./src/bot/anime");
 const { cgptHandler } = require("./src/bot/cgpt");
 const { hinaAdzimHandler } = require("./src/bot/hina-adzim");
@@ -13,4 +14,5 @@ cgptHandler();
 pwnedHandler();
 stickerHandler();
 quranHandler();
+MaretHandler();
 client.initialize();
