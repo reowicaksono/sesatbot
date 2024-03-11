@@ -1,9 +1,9 @@
 const { client } = require("../application/app");
 const config = require("../config/config.json");
-const moment = require("moment");
+const moment = require("moment-timezone");
 const { MessageMedia } = require("whatsapp-web.js");
 
-const MaretHandler = () => {
+const maretHandler = () => {
   client.on("message", async (message) => {
     const isGroups = message.from.endsWith("@g.us") ? true : false;
     if ((isGroups && config.groups) || !isGroups) {
@@ -36,4 +36,4 @@ const calculateRemainingTime = () => {
   return `_Sisa Waktu: ${days} hari, ${hours} jam, ${minutes} menit_`;
 };
 
-module.exports = { MaretHandler };
+module.exports = { maretHandler };
